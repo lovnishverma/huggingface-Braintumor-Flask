@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+    <!-- Custom Styles -->
+    <style type="text/css">
+        body {
+            background-image: url(static/brain.gif);
+            background-position: center;
+            background-size: cover;
+            font-family: 'Roboto', sans-serif;
+            margin-top: 40px;
+            color: #fff;
+        }
+
+        .navbar {
+            background-color: #212121 !important;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .regform {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            text-align: center;
+            border-radius: 15px 15px 0 0;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+            margin-top: 20px;
+        }
+
+        .regform h1 {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .main-form {
+            background-color: rgba(0, 0, 0, 0.7);
+            margin: 20px auto;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 900px;
+        }
+
+        .form-group label {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .form-control {
+            border-radius: 5px;
+            box-shadow: none;
+            border: 2px solid #bbb;
+            margin-bottom: 15px;
+        }
+
+        .form-control:focus {
+            border-color: #5cb85c;
+        }
+
+        .btn-submit {
+            background-color: #28a745;
+            color: white;
+            font-size: 1.1rem;
+            padding: 15px 30px;
+            border-radius: 5px;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: #218838;
+        }
+
+        .form-text {
+            font-size: 0.85rem;
+        }
+
+        .col-md-6 {
+            margin-bottom: 15px;
+        }
+
+        .col-md-6 label,
+        .col-md-6 input,
+        .col-md-6 select {
+            font-size: 1rem;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        /* Responsive design */
+        @media (max-width: 767px) {
+            .regform h1 {
+                font-size: 1.6rem;
+            }
+
+            .main-form {
+                padding: 20px;
+            }
+        }
+    </style>
+
+    <title>Brain Tumor Detection</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">CNN Brain Tumor Detection</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dbresults">View MongoDB Results</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="regform">
+        <h1>Brain Tumor Detection Form</h1>
+    </div>
+
+    <div class="container">
+        <form action="resultbt" class="main-form needs-validation" method="POST" enctype="multipart/form-data" novalidate>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="firstname">First Name</label>
+                        <input type="text" name="firstname" id="firstname" class="form-control" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="lastname">Last Name</label>
+                        <input type="text" name="lastname" id="lastname" class="form-control" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" name="phone" id="phone" class="form-control" required>
+                <small class="form-text">* Include your area code</small>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" name="email" id="email" class="form-control" required>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <select name="gender" id="gender" class="form-control" required>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="number" name="age" id="age" class="form-control" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="file">Upload Your Brain MRI</label>
+                <input type="file" class="form-control" id="file" name="file" required>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn-submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Brain Tumor Detection - All Rights Reserved</p>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+        crossorigin="anonymous"></script>
+
+    <!-- Enable Bootstrap validation -->
+    <script>
+        (function () {
+            'use strict'
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.querySelectorAll('.needs-validation')
+            // Loop over them and prevent submission
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+    </script>
+</body>
+
+</html>

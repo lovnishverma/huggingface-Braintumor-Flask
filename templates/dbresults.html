@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Results</title>
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-image: url('static/brain.gif');
+            background-position: center;
+            background-size: cover;
+            color: #fff;
+            padding-top: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .stats-container {
+            width: 90%;
+            margin: 20px auto;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .stats-container h2 {
+            font-size: 1.5rem;
+            margin: 10px 0;
+            color: #fff;
+        }
+
+        table {
+            width: 90%;
+            margin: 30px auto;
+            border-collapse: collapse;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px 18px;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        th {
+            background-color: #343a40;
+            color: #fff;
+        }
+
+        td {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+
+        tr:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 767px) {
+            h1 {
+                font-size: 1.6rem;
+            }
+
+            table {
+                width: 100%;
+            }
+
+            th, td {
+                padding: 10px 12px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Page Title -->
+    <h1>Stored Results</h1>
+
+    <!-- Stats Section -->
+    <div class="stats-container">
+        <h2>Total Patients: {{ total_patients }}</h2>
+        <h2>Total with Tumor: {{ tumor_count }}</h2>
+        <h2>Total without Tumor: {{ no_tumor_count }}</h2>
+    </div>
+
+    <!-- Table Container -->
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Gender</th>
+                    <th>Age</th>
+                    <th>Prediction</th>
+                    <th>Confidence Score</th>
+                    <th>Timestamp</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for result in results %}
+                <tr>
+                    <td>{{ result.firstname }}</td>
+                    <td>{{ result.lastname }}</td>
+                    <td>{{ result.email }}</td>
+                    <td>{{ result.phone }}</td>
+                    <td>{{ result.gender }}</td>
+                    <td>{{ result.age }}</td>
+                    <td>{{ result.prediction }}</td>
+                    <td>{{ result.confidence_score }}</td>
+                    <td>{{ result.timestamp }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2024 Brain Tumor Detection - All Rights Reserved</p>
+    </div>
+
+</body>
+</html>
