@@ -16,6 +16,10 @@ This Flask-based application allows users to upload an image (like an MRI scan) 
 
 
 
+![image](https://github.com/user-attachments/assets/fbbbeef7-c27f-42e3-8061-c059ea24751e)
+
+
+![image](https://github.com/user-attachments/assets/4a074771-8e52-42aa-9163-5d851c0263d5)
 
 
 Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
