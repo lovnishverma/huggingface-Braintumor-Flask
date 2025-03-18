@@ -30,7 +30,4 @@ Source Code: https://huggingface.co/spaces/LovnishVerma/braintumor/tree/main
 
 Live View: https://huggingface.co/spaces/LovnishVerma/braintumor
 
-![image](https://github.com/user-attachments/assets/28caa0ca-1e63-4eb1-803b-21a55256ec25)
-
-
 Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
